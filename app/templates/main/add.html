@@ -117,12 +117,15 @@
 							<td>{{ food.fats }}</th>
 							<td>{{ food.carbs*4 + food.proteins*4 + food.fats*9 }}</td>
 							<td>
-								<a href="#" class="btn btn-default btn-xs">
+								<a href="{{ url_for('main.edit', foodid=food.id) }}" class="btn btn-default btn-xs">
 									<i class="glyphicon glyphicon-pencil"></i> Edit
 								</a>
-								<a href="#" class="btn btn-danger btn-xs">
+								{% if allowDelete %}
+								<a href="{{ url_for('main.deleteFood', foodid=food.id) }}"
+									class="btn btn-danger btn-xs">
 									<i class="glyphicon glyphicon-trash"></i> Delete
 								</a>
+								{% endif %}
 							</td>
 						</tr>
 						{% endfor %}

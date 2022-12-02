@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %} FoodTracker | Add Food Item {% endblock %}
+{% block content %}
+<div class="row t20">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3 class="lean-h text-black">
+                    <i class="glyphicon glyphicon-plus-sign"></i> Edit {{ foodToEdit.name }}
+                </h3>
+                <hr />
+
+                <form action="{{url_for('main.edit', foodid=foodToEdit.id)}}" method="POST">
+                    {{ form.csrf_token }}
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                {{ form.name.label }}
+                                {{ form.name(class='form-control', placeholder='Food Name', autocomplete='off',
+                                value=foodToEdit.name)
+                                }}
+                                {% if form.name.errors %}
+                                <ul>
+                                    {% for error in form.name.errors %}
+                                    <li>{{error}}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                {{ form.protein.label }}
+                                {{ form.protein(class='form-control', placeholder='Protein', autocomplete='off', min=0,
+                                value=foodToEdit.proteins)
+                                }}
+                                {% if form.protein.errors %}
+                                <ul>
+                                    {% for error in form.protein.errors %}
+                                    <li>{{error}}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                {{ form.carbs.label }}
+                                {{ form.carbs(class='form-control', placeholder='Carbohydrates',
+                                autocomplete='off',min=0, value=foodToEdit.carbs) }}
+                                {% if form.carbs.errors %}
+                                <ul>
+                                    {% for error in form.carbs.errors %}
+                                    <li>{{error}}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                {{ form.fats.label }}
+                                {{ form.fats(class='form-control', placeholder='Fats', autocomplete='off', min=0,
+                                value=foodToEdit.fats) }}
+                                {% if form.fats.errors %}
+                                <ul>
+                                    {% for error in form.fats.errors %}
+                                    <li>{{error}}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="glyphicon glyphicon-upload"></i> Submit the edit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

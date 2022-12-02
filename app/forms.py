@@ -15,6 +15,16 @@ class FoodForm(FlaskForm):
     fats = IntegerField('Fats', validators=[InputRequired('Fats where?')])
 
 
+class EditFoodForm(FlaskForm):
+    protein = IntegerField('Protein',
+                           validators=[
+                               InputRequired('Proteins where?'),
+                           ])
+    carbs = IntegerField('Carbs',
+                         validators=[InputRequired('Carbohydrates where?')])
+    fats = IntegerField('Fats', validators=[InputRequired('Fats where?')])
+
+
 class DateForm(FlaskForm):
     date = DateField('Add New Date',
                      validators=[InputRequired('Bro? the date ?')])

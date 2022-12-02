@@ -80,7 +80,8 @@
 							<td>{{ food.fats }}</th>
 							<td>{{ food.carbs*4 + food.proteins*4 + food.fats*9 }}</td>
 							<td>
-								<a href="#" class="btn btn-danger btn-xs">
+								<a href="{{ url_for('main.deleteDayFood', day=logDate.id, food=food.id) }}"
+									class="btn btn-danger btn-xs">
 									<i class="glyphicon glyphicon-trash"></i> Delete
 								</a>
 							</td>
