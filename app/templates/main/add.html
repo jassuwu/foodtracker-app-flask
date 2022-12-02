@@ -10,28 +10,48 @@
 				</h3>
 				<hr />
 
-				<form action="" method="POST" role="form">
-
+				<form action="{{url_for('main.add')}}" method="POST">
+					{{ form.csrf_token }}
 					<div class="row">
 						<div class="col-lg-4">
 							<div class="form-group">
-								<label for="food-name">Food Name</label>
-								<input type="text" class="form-control" id="food-name" name="food-name"
-									placeholder="Food Name" autofocus>
+								{{ form.name.label }}
+								{{ form.name(class='form-control', placeholder='Food name', autocomplete='off') }}
+								{% if form.name.errors %}
+								<ul>
+									{% for error in form.name.errors %}
+									<li>{{error}}</li>
+									{% endfor %}
+								</ul>
+								{% endif %}
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="form-group">
-								<label for="protein">Protein</label>
-								<input type="number" class="form-control" id="protein" name="protein"
-									placeholder="Protein">
+								{{ form.protein.label }}
+								{{ form.protein(class='form-control', placeholder='Protein', autocomplete='off', min=0)
+								}}
+								{% if form.protein.errors %}
+								<ul>
+									{% for error in form.protein.errors %}
+									<li>{{error}}</li>
+									{% endfor %}
+								</ul>
+								{% endif %}
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="form-group">
-								<label for="carbohydrates">Carbohydrates</label>
-								<input type="number" class="form-control" id="carbohydrates" name="carbohydrates"
-									placeholder="Carbohydrates">
+								{{ form.carbs.label }}
+								{{ form.carbs(class='form-control', placeholder='Carbohydrates',
+								autocomplete='off',min=0) }}
+								{% if form.carbs.errors %}
+								<ul>
+									{% for error in form.carbs.errors %}
+									<li>{{error}}</li>
+									{% endfor %}
+								</ul>
+								{% endif %}
 							</div>
 						</div>
 					</div>
@@ -39,8 +59,15 @@
 					<div class="row">
 						<div class="col-lg-4">
 							<div class="form-group">
-								<label for="fat">Fat</label>
-								<input type="number" class="form-control" id="fat" name="fat" placeholder="Fat">
+								{{ form.fats.label }}
+								{{ form.fats(class='form-control', placeholder='Fats', autocomplete='off', min=0) }}
+								{% if form.fats.errors %}
+								<ul>
+									{% for error in form.fats.errors %}
+									<li>{{error}}</li>
+									{% endfor %}
+								</ul>
+								{% endif %}
 							</div>
 						</div>
 
@@ -53,7 +80,6 @@
 							</div>
 						</div>
 					</div>
-
 				</form>
 			</div>
 		</div>
@@ -82,13 +108,14 @@
 						</tr>
 					</thead>
 					<tbody>
+						{% for food in foodList %}
 						<tr>
-							<td>1</td>
-							<td>Burger</td>
-							<td>20</td>
-							<td>25</td>
-							<td>15</th>
-							<td>315</td>
+							<td>{{ food.id }}</td>
+							<td>{{ food.name }}</td>
+							<td>{{ food.proteins }}</td>
+							<td>{{ food.carbs }}</td>
+							<td>{{ food.fats }}</th>
+							<td>{{ food.carbs*4 + food.proteins*4 + food.fats*9 }}</td>
 							<td>
 								<a href="#" class="btn btn-default btn-xs">
 									<i class="glyphicon glyphicon-pencil"></i> Edit
@@ -98,22 +125,7 @@
 								</a>
 							</td>
 						</tr>
-						<tr>
-							<td>1</td>
-							<td>Burger</td>
-							<td>20</td>
-							<td>25</td>
-							<td>15</th>
-							<td>315</td>
-							<td>
-								<a href="#" class="btn btn-default btn-xs">
-									<i class="glyphicon glyphicon-pencil"></i> Edit
-								</a>
-								<a href="#" class="btn btn-danger btn-xs">
-									<i class="glyphicon glyphicon-trash"></i> Delete
-								</a>
-							</td>
-						</tr>
+						{% endfor %}
 					</tbody>
 				</table>
 			</div>

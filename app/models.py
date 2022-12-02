@@ -21,4 +21,7 @@ class Food(db.Model):
 class Log(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     logDate = db.Column(db.Date, nullable=False)
-    foods = db.relationship('foods', secondary=log_food)
+    foods = db.relationship('Food',
+                            secondary=log_food,
+                            backref='log',
+                            lazy='dynamic')
