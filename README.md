@@ -1,2 +1,2 @@
-# store-app-flask
-store app made with flask
+# foodtracker-app-flask
+foodtracker app made with flask
