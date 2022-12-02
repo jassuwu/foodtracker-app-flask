@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %} FoodTracker | Home {% endblock %}
+{% block content %}
+<div class="row t20">
+	<div class="col-lg-4 col-lg-offset-4">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<form action="" method="POST" role="form">
+
+					<div class="form-group">
+						<label><i class="glyphicon glyphicon-plus-sign"></i> Add New Date</label>
+						<div class="input-group">
+							<input type="date" class="form-control" placeholder="Select New Date" aria-label="date"
+								aria-describedby="add-btn">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-primary" id="add-btn">
+									<i class="glyphicon glyphicon-plus-sign"></i> Add Date
+								</button>
+							</span>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row t20">
+	<div class="col-lg-12">
+		<h4 class="text-center text-white"><strong>Existing Records (30)</strong></h4>
+	</div>
+</div>
+
+<div class="row t20">
+	<div class="col-lg-3">
+		<div class="panel panel-warning">
+			<div class="panel-body text-bold">
+				<i class="glyphicon glyphicon-calendar"></i> December 14, 2017
+
+				<a class="btn btn-primary btn-xs pull-right" href="{{url_for('main.view')}}">
+					View <i class="glyphicon glyphicon-arrow-right"></i>
+				</a>
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item text-bold"><span class="badge">60</span> Protein</li>
+				<li class="list-group-item text-bold"><span class="badge">49</span> Carbohydrate</li>
+				<li class="list-group-item text-bold"><span class="badge">55</span> Fat</li>
+				<li class="list-group-item text-bold"><span class="badge">955</span> Calories</li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-lg-3">
+		<div class="panel panel-warning">
+			<div class="panel-body text-bold">
+				<i class="glyphicon glyphicon-calendar"></i> December 14, 2017
+
+				<a class="btn btn-primary btn-xs pull-right" href="{{url_for('main.view')}}">
+					View <i class="glyphicon glyphicon-arrow-right"></i>
+				</a>
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item text-bold"><span class="badge">60</span> Protein</li>
+				<li class="list-group-item text-bold"><span class="badge">49</span> Carbohydrate</li>
+				<li class="list-group-item text-bold"><span class="badge">55</span> Fat</li>
+				<li class="list-group-item text-bold"><span class="badge">955</span> Calories</li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-lg-3">
+		<div class="panel panel-warning">
+			<div class="panel-body text-bold">
+				<i class="glyphicon glyphicon-calendar"></i> December 14, 2017
+
+				<a class="btn btn-primary btn-xs pull-right" href="{{url_for('main.view')}}">
+					View <i class="glyphicon glyphicon-arrow-right"></i>
+				</a>
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item text-bold"><span class="badge">60</span> Protein</li>
+				<li class="list-group-item text-bold"><span class="badge">49</span> Carbohydrate</li>
+				<li class="list-group-item text-bold"><span class="badge">55</span> Fat</li>
+				<li class="list-group-item text-bold"><span class="badge">955</span> Calories</li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-lg-3">
+		<div class="panel panel-warning">
+			<div class="panel-body text-bold">
+				<i class="glyphicon glyphicon-calendar"></i> December 14, 2017
+
+				<a class="btn btn-primary btn-xs pull-right" href="{{url_for('main.view')}}">
+					View <i class="glyphicon glyphicon-arrow-right"></i>
+				</a>
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item text-bold"><span class="badge">60</span> Protein</li>
+				<li class="list-group-item text-bold"><span class="badge">49</span> Carbohydrate</li>
+				<li class="list-group-item text-bold"><span class="badge">55</span> Fat</li>
+				<li class="list-group-item text-bold"><span class="badge">955</span> Calories</li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
