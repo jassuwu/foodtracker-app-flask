@@ -39,8 +39,24 @@
                                 <a href="{{url_for('main.index')}}" title="Home">Home</a>
                             </li>
                             <li role="presentation">
+                                <a href="{{url_for('main.help')}}" title="Help">Help</a>
+                            </li>
+                            <li role="presentation">
                                 <a href="{{url_for('main.add')}}" title="Add Food Item">Add Food Item</a>
                             </li>
+                            {% if not current_user.is_authenticated %}
+                            <li role="presentation">
+                                <a href="{{url_for('main.register')}}" title="Register">Register</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="{{url_for('main.login')}}" title="Login">Login</a>
+                            </li>
+                            {% endif %}
+                            {% if current_user.is_authenticated %}
+                            <li role="presentation">
+                                <a href="{{url_for('main.logout')}}" title="Logout">Logout</a>
+                            </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
@@ -52,7 +68,7 @@
         <footer>
             <div class="row pad">
                 <div class="col-lg-12 text-center">
-                    Copyright &copy; 2017 <strong>Food Tracker</strong>
+                    Copyright &copy; {{now.year}} <strong>Food Tracker</strong>
                 </div>
             </div>
         </footer>

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %} Foodtracker | Login {% endblock %}
+
+{% block content %}
+<div class="row t20">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3 class="lean-h text-black">
+                    <i class="glyphicon glyphicon-plus-sign"></i> New user in the need of some tracking ?
+                </h3>
+                <hr />
+
+                <form action="{{url_for('main.register')}}" method="POST">
+                    {{ form.csrf_token }}
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                {{ form.name.label }}
+                                {{ form.name(class='form-control', placeholder='Full name', autocomplete='off') }}
+                                {% if form.name.errors %}
+                                <ul>
+                                    {% for error in form.name.errors %}
+                                    <li>{{error}}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                {{ form.username.label }}
+                                {{ form.username(class='form-control', placeholder='username', autocomplete='off',
+                                min=0)
+                                }}
+                                {% if form.username.errors %}
+                                <ul>
+                                    {% for error in form.username.errors %}
+                                    <li>{{error}}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                {{ form.password.label }}
+                                {{ form.password(class='form-control', placeholder='Carbohydrates',
+                                autocomplete='off',min=0) }}
+                                {% if form.password.errors %}
+                                <ul>
+                                    {% for error in form.password.errors %}
+                                    <li>{{error}}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label style="visibility:hidden">submit</label>
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="glyphicon glyphicon-upload"></i> Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

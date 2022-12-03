@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 {% block title %} FoodTracker | Home {% endblock %}
 {% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class="flashes">
+	{% for message in messages %}
+	<li>{{ message }}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
 <div class="row t20">
 	<div class="col-lg-4 col-lg-offset-4">
 		<div class="panel panel-default">
